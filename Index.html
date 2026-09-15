@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #ffb6d5);
+      overflow: hidden;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 400px;
+      padding: 35px 25px;
+      background: white;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 2;
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    h1 {
+      color: #ff4f8b;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      border: none;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background: #ff4f8b;
+      color: white;
+    }
+
+    #yes:hover {
+      transform: scale(1.08);
+      background: #ff3478;
+    }
+
+    #no {
+      background: #eee;
+      color: #555;
+      position: relative;
+    }
+
+    #success {
+      display: none;
+      margin-top: 20px;
+      color: #ff4f8b;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 25px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(110vh);
+      }
+      to {
+        transform: translateY(-10vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart" style="left:10%; animation-delay:0s;">💗</div>
+  <div class="floating-heart" style="left:30%; animation-delay:2s;">💕</div>
+  <div class="floating-heart" style="left:55%; animation-delay:1s;">💖</div>
+  <div class="floating-heart" style="left:80%; animation-delay:3s;">💘</div>
+
+  <div class="card">
+
+    <div class="heart">🥺💗</div>
+
+    <h1>I'm Sorry...</h1>
+
+    <p>
+      I know I made a mistake, and I'm truly sorry.
+      I never wanted to hurt you or make you feel bad.
+      <br><br>
+      Can you forgive me? 🥺
+    </p>
+
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">YES 💗</button>
+      <button id="no" onmouseover="moveNo()" onclick="moveNo()">NO 😤</button>
+    </div>
+
+    <div id="success">
+      YAYYY 🥹💗<br>
+      Thank you for forgiving me.<br>
+      I love you so much. ❤️
+    </div>
+
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("success").style.display = "block";
+
+      document.getElementById("yes").innerHTML = "I LOVE YOU 💗";
+
+      document.getElementById("no").style.display = "none";
+    }
+
+    function moveNo() {
+      const noButton = document.getElementById("no");
+
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noButton.style.position = "fixed";
+      noButton.style.left = randomX + "px";
+      noButton.style.top = randomY + "px";
+    }
+  </script>
+
+</body>
+</html>
